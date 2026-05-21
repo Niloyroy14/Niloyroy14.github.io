@@ -243,12 +243,24 @@ nav {
 .stat-num  { font-family:'Syne',sans-serif; font-size:2.2rem; font-weight:800; color:var(--accent); line-height:1; }
 .stat-label { font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted); margin-top:.3rem; }
 
+.floating-area {  }
+
 .floating-tag {
   position: absolute; font-size: .68rem; letter-spacing: .07em;
-  padding: .3rem .75rem; border: 1px solid rgba(255,255,255,.07);
-  border-radius: 100px; background: rgba(255,255,255,.03);
-  color: var(--text-muted); pointer-events: none;
+  padding: .3rem .75rem; 
+  background: rgba(0,229,255,.12); 
+  border: 1.5px solid var(--accent);
+  border-radius: 100px;
+  color: var(--accent); 
+  pointer-events: none;
   animation: floatTag 6s ease-in-out infinite;
+  white-space: nowrap;
+  transition: all .2s ease;
+}
+[data-theme="light"] .floating-tag {
+  background: rgba(0,119,170,.1);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 .floating-tag:nth-child(1){top:20%;right:14%;animation-delay:0s}
 .floating-tag:nth-child(2){top:35%;right:7%; animation-delay:1.5s}
@@ -598,6 +610,13 @@ footer {
 @keyframes fadeIn  { from{opacity:0}                             to{opacity:1} }
 
 /* ── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .floating-tag:nth-child(1){top:18%;right:8%;}
+  .floating-tag:nth-child(2){top:32%;right:4%; }
+  .floating-tag:nth-child(3){top:50%;right:12%;}
+  .floating-tag:nth-child(4){top:65%;right:6%; }
+}
+
 @media (max-width: 900px) {
   .about-grid { grid-template-columns:1fr; gap:3rem; }
   .about-badge-strip { display:none; }
